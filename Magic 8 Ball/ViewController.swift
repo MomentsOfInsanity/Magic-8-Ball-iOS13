@@ -10,8 +10,25 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    let ballArray = [#imageLiteral(resourceName: "ball1.png"),#imageLiteral(resourceName: "ball2.png"),#imageLiteral(resourceName: "ball3.png"),#imageLiteral(resourceName: "ball4.png"),#imageLiteral(resourceName: "ball5.png")]
-
+    @IBOutlet weak var imageView: UIImageView!
+    
+    
+    var ballNumber = Int.random(in: 0...4)
+    let ballArray = [#imageLiteral(resourceName: "ball2"),#imageLiteral(resourceName: "ball1"),#imageLiteral(resourceName: "ball3"),#imageLiteral(resourceName: "ball5"),#imageLiteral(resourceName: "ball4")]
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        imageView.image = ballArray[ballNumber]
+    }
+    
+    
+    @IBAction func rollButtonTapped(_ sender: Any) {
+        imageView.image = ballArray[ballNumber]
+        
+        ballNumber = Int.random(in: 0...4)
+    }
+    
+    
 
 
 }
